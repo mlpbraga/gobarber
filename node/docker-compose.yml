@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres:12.2-alpine
+    container_name: gobarber_postgres
+    # restart: always
+    ports:
+      - 5432:5432
+    command: postgres -c idle_in_transaction_session_timeout='1min'
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+      PGDATA: /var/lib/postgresql/data
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge
