@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import { Router } from 'express';
 import { parseISO } from 'date-fns';
 
@@ -9,11 +10,11 @@ const appointmentsRouter = Router();
 
 appointmentsRouter.post('/', async (req, res) => {
   try {
-    const { provider, date } = req.body;
+    const { provider_id, date } = req.body;
     const parsedDate = parseISO(date);
     const createAppointment = new CreateAppointmentService();
     const appointment = await createAppointment.execute({
-      provider,
+      provider_id,
       date: parsedDate,
     });
     return res.json(appointment);
