@@ -14,5 +14,5 @@ rebuild-db:
 migrate-db:
 	yarn typeorm migration:run
 
-migration-revert-db:
+migrate-revert-db:
 	yarn typeorm migration:revert
