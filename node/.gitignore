@@ -1,2 +1,4 @@
 node_modules/
 data/
+temp/*
+!temp/.gitkeep
