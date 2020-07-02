@@ -18,9 +18,9 @@ const SignUp: React.FC = () => {
     try {
       formRef.current?.setErrors({});
       const schema = Yup.object().shape({
-        name: Yup.string().required('Nome obrigatório.'),
+        name: Yup.string().required('Nome obrigatório'),
         email: Yup.string()
-          .required('E-mail obrigatório.')
+          .required('E-mail obrigatório')
           .email('Digite um e-mail válido'),
         password: Yup.string().min(
           6,
@@ -30,8 +30,6 @@ const SignUp: React.FC = () => {
       await schema.validate(data, { abortEarly: false });
     } catch (error) {
       const errors = getValidationErrors(error);
-      console.log('----------------------------');
-      console.log(errors);
       formRef.current?.setErrors(errors);
     }
   }, []);
