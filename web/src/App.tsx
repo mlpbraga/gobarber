@@ -5,7 +5,7 @@ import GlobalStyle from './styles/global';
 
 const App: React.FC = () => (
   <>
-    <BrowserRouter basename="gobarber">
+    <BrowserRouter basename="/">
       <Routes />
     </BrowserRouter>
     <GlobalStyle />
