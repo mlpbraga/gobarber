@@ -1,2 +1,2 @@
 # gobarber
-Aplicativo desenvolvido durante o curso bootcampo GoStack da Rocket Seat, simulando o gerenciador de hoarários de uma barbearia.
+Aplicação de gerenciamentos de atendimentos em barbearias desenvolvida durante o curso Bootcamp GoStack da Rocketseat.
