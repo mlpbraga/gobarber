@@ -1,9 +1,9 @@
 /* eslint-disable camelcase */
 import { startOfHour } from 'date-fns';
 import { getCustomRepository } from 'typeorm';
-import Appointment from '../models/Appointments';
-import AppointmentsRepository from '../repositories/AppointmentsRepository';
-import AppError from '../errors/AppError';
+import Appointment from '@modules/appointments/infra/typeorm/entities/Appointments';
+import AppointmentsRepository from '@modules/appointments/repositories/AppointmentsRepository';
+import AppError from '@shared/errors/AppError';
 
 interface Request {
   date: Date;
