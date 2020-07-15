@@ -1,9 +1,8 @@
 /* eslint-disable camelcase */
 import { Router } from 'express';
 import { parseISO } from 'date-fns';
+import { container } from 'tsyringe';
 
-import { getCustomRepository } from 'typeorm';
-import AppointmentsRepository from '@modules/appointments/repositories/AppointmentsRepository';
 import CreateAppointmentService from '@modules/appointments/services/CreateAppointmentService';
 import ensureAuthenticated from '@modules/users/infra/http/ensureAuthenticated';
 
@@ -14,7 +13,7 @@ appointmentsRouter.use(ensureAuthenticated);
 appointmentsRouter.post('/', async (req, res) => {
   const { provider_id, date } = req.body;
   const parsedDate = parseISO(date);
-  const createAppointment = new CreateAppointmentService();
+  const createAppointment = container.resolve(CreateAppointmentService);
   const appointment = await createAppointment.execute({
     provider_id,
     date: parsedDate,
@@ -22,10 +21,9 @@ appointmentsRouter.post('/', async (req, res) => {
   return res.json(appointment);
 });
 
-appointmentsRouter.get('/', async (req, res) => {
-  const appointmentsRepository = getCustomRepository(AppointmentsRepository);
-  const appointments = await appointmentsRepository.find();
-  return res.json(appointments);
-});
+// appointmentsRouter.get('/', async (req, res) => {
+//   const appointments = await appointmentsRepository.find();
+//   return res.json(appointments);
+// });
 
 export default appointmentsRouter;
