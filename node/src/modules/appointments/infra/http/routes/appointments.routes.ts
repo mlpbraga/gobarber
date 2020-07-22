@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 import { Router } from 'express';
 import ensureAuthenticated from '@modules/users/infra/http/ensureAuthenticated';
-import AppointmentsController from './controllers/AppointmentsController';
+import AppointmentsController from '../controllers/AppointmentsController';
 
 const appointmentsRouter = Router();
 const controller = new AppointmentsController();
