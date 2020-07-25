@@ -15,6 +15,7 @@ describe('ListMonthAvailabilityService', () => {
   it('should be able to list month availability from provider', async () => {
     await fakeAppointmentsRepository.create({
       provider_id: '123',
+      user_id: '213',
       date: new Date(2020, 1, 29, 8, 0, 0),
     });
 
@@ -22,6 +23,7 @@ describe('ListMonthAvailabilityService', () => {
     Promise.all(
       bulk.map(hour => {
         return fakeAppointmentsRepository.create({
+          user_id: '213',
           provider_id: '123',
           date: new Date(2020, 6, 29, hour + 8, 0, 0),
         });
@@ -30,6 +32,7 @@ describe('ListMonthAvailabilityService', () => {
 
     await fakeAppointmentsRepository.create({
       provider_id: '123',
+      user_id: '213',
       date: new Date(2020, 6, 30, 8, 0, 0),
     });
 
