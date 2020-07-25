@@ -17,6 +17,18 @@ services:
       - ./data:/var/lib/postgresql/data
     networks:
       - backend
+  mongo:
+    image: mongo
+    container_name: gobarber_mongo
+    # environment:
+    #   MONGO_INITDB_ROOT_USERNAME: root
+    #   MONGO_INITDB_ROOT_PASSWORD: mongo!
+    ports:
+      - 27017:27017
+    volumes:
+      - ./mongo-data:/var/lib/mongodb/data
+    networks:
+      - backend
 
 networks:
   backend:
