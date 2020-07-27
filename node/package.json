@@ -14,8 +14,10 @@
   },
   "dependencies": {
     "@types/cors": "^2.8.6",
+    "@types/joi": "^14.3.4",
     "@types/mongodb": "^3.5.25",
     "bcryptjs": "^2.4.3",
+    "celebrate": "^12.1.2",
     "class-transformer": "^0.2.3",
     "cors": "^2.8.5",
     "date-fns": "^2.14.0",

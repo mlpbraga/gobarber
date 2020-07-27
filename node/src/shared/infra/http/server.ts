@@ -5,6 +5,7 @@ import '@shared/container';
 import express, { Request, Response, NextFunction } from 'express';
 import 'express-async-errors';
 import cors from 'cors';
+import { errors } from 'celebrate';
 import uploadConfig from '@config/upload';
 import AppError from '@shared/errors/AppError';
 
@@ -17,7 +18,7 @@ app.use(express.json());
 app.use('/files', express.static(uploadConfig.uploadsFolder));
 app.use(cors());
 app.use(routes);
-
+app.use(errors);
 // error handler
 app.use((error: Error, req: Request, res: Response, _: NextFunction) => {
   if (error instanceof AppError)
