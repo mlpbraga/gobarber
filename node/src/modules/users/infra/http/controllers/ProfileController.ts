@@ -4,6 +4,7 @@ import { container } from 'tsyringe';
 
 import UpdateProfileService from '@modules/users/services/UpdateUserProfileService';
 import ShowProfileService from '@modules/users/services/ShowProfileService';
+import { classToClass } from 'class-transformer';
 
 export default class UsersController {
   public async show(req: Request, res: Response): Promise<Response> {
@@ -23,7 +24,7 @@ export default class UsersController {
       password,
       oldPassword,
     });
-    delete user.password;
-    return res.status(202).json(user);
+
+    return res.status(202).json(classToClass(user));
   }
 }
